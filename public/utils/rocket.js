@@ -9,14 +9,22 @@ function Rocket(x, y, r, size = 8, angle = 90) {
     this.positions = [];
     this.limitSpeed;
 
-    // this.flagColorRed = (255, 0, 0);
-    // this.flagColorWhite = (0, 0, 0);
     this.flagColor = {
         x: 255,
-        y: 255,
-        z: 255,
-        t: 0 // t is the transparency of the flag
+        y: 0,
+        t: 0 // t = transparency of the flag
     };
+
+
+
+
+
+    // this.flagColor = {
+    //     x: 255,
+    //     y: 255,
+    //     z: 255,
+    //     t: 0 // t is the transparency of the flag
+    // };
     
     
 
@@ -104,19 +112,67 @@ function Rocket(x, y, r, size = 8, angle = 90) {
         //line for flag
         push();
 
-        stroke(this.flagColor.x, this.flagColor.y, this.flagColor.z, this.flagColor.t);
+        // stroke(this.flagColor.x, this.flagColor.x, this.flagColor.x, this.flagColor.t);
+        stroke(255, 255, 255, rocket.flagColor.t);
+        
+        // stroke(this.flagColor.x, this.flagColor.y, this.flagColor.z, this.flagColor.t);
 
         // stroke(0, 0, 255);
         line(0, this.positions[this.positions.length - 1].y + 0.53 * this.r, 0, this.positions[this.positions.length - 1].y + 1.2 * r);
 
         //Flag rectangle
-        fill(this.flagColor.x, this.flagColor.y, this.flagColor.z, this.flagColor.t);
-        // fill(0, 0, 255);
+        push();
+        noStroke();
         beginShape();
-        rect(0, this.positions[this.positions.length - 1].y + 1.2 * this.r, this.r * 1.1, this.r * 0.7)
+        fill(0, 0, 0, rocket.flagColor.t);
+        rect(0, this.positions[this.positions.length - 1].y + 1.2 * this.r, this.r * 1.1, this.r * 0.7);
+        //Top left quad
+        rect(0, this.positions[this.positions.length - 1].y + 1.2 * this.r, this.r * 1.1 / 2, this.r * 0.7 / 2);
+        //Bottom right
+        rect(0 + this.r * 1.1 / 2, this.positions[this.positions.length - 1].y + 1.2 * this.r + this.r * 0.7 / 2, this.r * 1.1 / 2, this.r * 0.7 / 2);
         endShape();
+        pop();
+
+        push();
+        fill(255, 255, 255, rocket.flagColor.t);
+        noStroke();
+        //Top Right quad
+        rect(0 + this.r * 1.1 / 2, this.positions[this.positions.length - 1].y + 1.2 * this.r, this.r * 1.1 / 2, this.r * 0.7 / 2);
+        //Bottom left
+        rect(0, this.positions[this.positions.length - 1].y + 1.2 * this.r + this.r * 0.7 / 2, this.r * 1.1 / 2, this.r * 0.7 / 2);
+        pop();
+
+        // fill(this.flagColor.x, this.flagColor.y, this.flagColor.z, this.flagColor.t);
+
+        // //Flag rectangle
+
+        // fill(this.flagColor.x, this.flagColor.y, this.flagColor.z, this.flagColor.t);
+
+        // fill(0, 0, 255);
+        
+   
+        // beginShape();
+        // rect(0, this.positions[this.positions.length - 1].y + 1.2 * this.r, this.r * 1.1, this.r * 0.7)
+        // endShape();
    
         pop();
+
+        // //line for flag
+        // push();
+
+        // stroke(this.flagColor.x, this.flagColor.y, this.flagColor.z, this.flagColor.t);
+
+        // // stroke(0, 0, 255);
+        // line(0, this.positions[this.positions.length - 1].y + 0.53 * this.r, 0, this.positions[this.positions.length - 1].y + 1.2 * r);
+
+        // //Flag rectangle
+        // fill(this.flagColor.x, this.flagColor.y, this.flagColor.z, this.flagColor.t);
+        // // fill(0, 0, 255);
+        // beginShape();
+        // rect(0, this.positions[this.positions.length - 1].y + 1.2 * this.r, this.r * 1.1, this.r * 0.7)
+        // endShape();
+   
+        // pop();
 
 
 
