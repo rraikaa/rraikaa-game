@@ -7,7 +7,7 @@
     
     "watch:sass": "node-sass ./public/sass/main.scss ./public/css/style.css -w",
     "dev": "nodemon index.js",
-    "start": "npm-run-all --parallel dev watch:sass",
+    "start": "node index.js",
     "compile:sass": "node-sass ./public/sass/main.scss ./public/css/style.comp.css",
     "concat:css": "concat -o ./public/css/style.concat.css ./public/css/icon-font.css ./public/css/style.comp.css",
     "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' ./public/css/style.concat.css -o ./public/css/style.prefix.css",
