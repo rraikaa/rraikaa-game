@@ -20,7 +20,6 @@ app.get("./index.html", function(req, res) {
 });
 
 
-
 app.use("/game", game);
 app.post("/game", function(req,res) {
     res.sendFile(path.join(publicDirectoryPath, '/views/game.html'));
